@@ -1,130 +1,156 @@
 <template>
   <div class="snsMarketing">
-    <h4><span>Step01</span> 회원 설정</h4>
-    <div class="filter-option">
-      <dl class="member-number">
-        <dt>
-          대상회원
-        </dt>
-        <dd>
-          <span>
-            <b>245</b>명
-          </span>
-        </dd>
-      </dl>
-      <dl>
-        <dt>
-          대상회원 설정
-        </dt>
-        <dd>
-          <span><input type="radio" name="select2" value="all" checked v-model="picked"> 전체 가입자</span>
-          <span class="bar">
-            |
-          </span>
-          <span><input type="radio" name="select2" value="befor" v-model="picked"> 회원 가입일 기준</span>
-          <span class="bar">
-            |
-          </span>
-          <span><input type="radio" name="select2" value="after" v-model="picked"> 회원 이용일 기준</span>
-        </dd>
-      </dl>
-      <dl v-if="picked !== 'all'">
-        <dt>
-           기준날짜
-        </dt>
-        <dd>
-          <span>
-            <v-menu
-                v-model="menu"
-                :close-on-content-click="false"
-                :nudge-right="0"
-                transition="scale-transition"
-                background-color="#fff"
-                offset-y
-              >
-              <template v-slot:activator="{ on }">
-                <v-btn
-                  v-model="date"
-                  v-on="on"
-                  text
+    <div class="setting">
+      <h4><span>Step01</span> 회원 설정</h4>
+      <div class="filter-option">
+        <dl class="member-number">
+          <dt>
+            대상회원
+          </dt>
+          <dd>
+            <span>
+              <b>245</b>명
+            </span>
+          </dd>
+        </dl>
+        <dl>
+          <dt>
+            대상회원 설정
+          </dt>
+          <dd>
+            <span><input type="radio" name="select2" value="all" checked v-model="picked"> 전체 가입자</span>
+            <span class="bar">
+              |
+            </span>
+            <span><input type="radio" name="select2" value="befor" v-model="picked"> 회원 가입일 기준</span>
+            <span class="bar">
+              |
+            </span>
+            <span><input type="radio" name="select2" value="after" v-model="picked"> 회원 이용일 기준</span>
+          </dd>
+        </dl>
+        <dl v-if="picked !== 'all'">
+          <dt>
+            기준날짜
+          </dt>
+          <dd>
+            <span>
+              <v-menu
+                  v-model="menu"
+                  :close-on-content-click="false"
+                  :nudge-right="0"
+                  transition="scale-transition"
+                  background-color="#fff"
+                  offset-y
                 >
-                  {{date}}
-                </v-btn>
-              </template>
-              <v-date-picker
-                v-model="date"
-                :first-day-of-week="1"
-                @input="menu = false"
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    v-model="date"
+                    v-on="on"
+                    text
+                  >
+                    {{date}}
+                  </v-btn>
+                </template>
+                <v-date-picker
+                  v-model="date"
+                  :first-day-of-week="1"
+                  @input="menu = false"
 
-              />
-            </v-menu>
-          </span>
-          <span><input type="radio" name="select"> 이전</span>
-          <span class="bar">
-            |
-          </span>
-          <span><input type="radio" name="select"> 이후</span>
-        </dd>
-      </dl>
-      <dl class="priceInput">
-        <dt>
-          사용금액 구간
-        </dt>
-        <dd>
-          <span>
-            <input type="text">
-            <label>원</label>
-          </span>
-          <span>
-            이상 사용자
-          </span>
-        </dd>
-      </dl>
+                />
+              </v-menu>
+            </span>
+            <span><input type="radio" name="select"> 이전</span>
+            <span class="bar">
+              |
+            </span>
+            <span><input type="radio" name="select"> 이후</span>
+          </dd>
+        </dl>
+        <dl class="priceInput">
+          <dt>
+            사용금액 구간
+          </dt>
+          <dd>
+            <span>
+              <input type="text">
+              <label>원</label>
+            </span>
+            <span>
+              이상 사용자
+            </span>
+          </dd>
+        </dl>
+      </div>
+
+      <div class="filter-btn">
+        <v-btn outlined>대상 조회하기</v-btn>
+      </div>
+      
+      <h4><span>Step02</span> 이벤트내용 입력</h4>
+      <div class="detail-option">
+        <dl class="priceInput">
+          <dt>이벤트 종류</dt>
+          <dd>
+            <span><input type="radio" name="select3" checked value="massage" v-model="picked2">문자만 발송</span>
+            <span class="bar">
+              |
+            </span>
+            <span><input type="radio" name="select3" value="point" v-model="picked2">문자 + 포인트적립 발송</span>
+          </dd>
+        </dl>
+        <dl class="priceInput" v-if="picked2 === 'point'">
+          <dt>적립금액</dt>
+          <dd>
+            <span>
+              <input type="text">
+              <label>원</label>
+            </span>
+          </dd>
+        </dl>
+        <dl>
+          <dt>
+            발송내용입력
+          </dt>
+          <dd>
+            <textarea placeholder="발송내용을 입력해주세요"></textarea>
+          </dd>
+        </dl>
+      </div>
     </div>
     
-    <h4><span>Step02</span> 이벤트내용 입력</h4>
-    <div class="detail-option">
-      <dl class="priceInput">
-        <dt>이벤트 종류</dt>
-        <dd>
-          <span><input type="radio" name="select3" checked value="massage" v-model="picked2">문자만 발송</span>
-          <span class="bar">
-            |
-          </span>
-          <span><input type="radio" name="select3" value="point" v-model="picked2">문자 + 포인트적립 발송</span>
-        </dd>
-      </dl>
-      <dl class="priceInput" v-if="picked2 === 'point'">
-        <dt>적립금액</dt>
-        <dd>
-          <span>
-            <input type="text">
-            <label>원</label>
-          </span>
-        </dd>
-      </dl>
-      <dl>
-        <dt>
-          발송내용입력
-        </dt>
-        <dd>
-          <textarea placeholder="발송내용을 입력해주세요"></textarea>
-        </dd>
-      </dl>
+
+    
+    <div class="order-box">
+      <h4>주문내역</h4>
+      
+      <div class="order-info">
+        <span>
+          <label>대상회원</label>
+          <strong>245 명</strong>
+        </span>
+        <span>
+          <label>인원 x 문자발송비용(건당 80원)</label>
+          <strong>34,550 원</strong>
+        </span>
+        <span>
+          <label>부가가치세</label>
+          <strong>3,450 원</strong>
+        </span>
+        <v-divider></v-divider>
+        <span class="last">
+          <label>최종금액</label>
+          <strong>39,000 원</strong>
+        </span>
+      </div>
+
+      <div class="sandBtns">
+        <v-btn outlined>이벤트 결제 진행하기</v-btn>
+      </div>
     </div>
 
     
-    <div class="last-price">
-      <h5>최종금액</h5>
-      <span>
-        <strong>12,500</strong>원
-      </span>
-    </div>
-
     
-    <div class="sandBtns">
-      <v-btn outlined>이벤트 진행하기</v-btn>
-    </div>
   </div>
 </template>
 
@@ -146,12 +172,18 @@ export default {
 
 .snsMarketing{
 
+  display:flex;
+
+  .setting{
+    flex:1;
+    margin-right:60px;
+  }
+
   h4{
     font-size:16px;font-family:'SCDream';font-weight:500;margin-bottom:15px;
     span{color:#EE2073;font-size:14px;}
   }
 
-  .filter-option{margin-bottom:50px;}
 
   dl:first-child{border-top:1px solid #292929}
   dl{border-bottom:1px solid #e2e2e2;
@@ -219,30 +251,67 @@ export default {
     }
   }
 
-  .last-price{
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top:30px;
-    background:#FFF3F3;
-    font-family:'SCDream';
-    font-weight:500;
-    padding:15px;
-
-    h5{font-weight:400;font-size:14px;}
-    strong{font-size:26px;margin-right:5px;color:#EE2073}
-  }
-
-  .sandBtns{
-    text-align: center;
-    margin-top:30px;
+  .filter-btn{
+    text-align: center;;
+    margin:20px 0 50px 0;
 
     .v-btn{
       background:#292929;
+      border:0px;
+      color:#fff;
+    }
+  }
+
+  .order-box{
+    width:420px;
+    background:#FFF3F3;
+    border-radius:10px;
+    padding:30px;
+
+    h4{margin-bottom:20px;}
+
+    .order-info{
+      font-family:'SCDream';
+
+      .v-divider{
+        margin:20px 0;
+      }
+      span{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        height:30px;
+
+        label{font-size:14px;color:#888}
+        strong{font-size:14px;color:#292929;}
+      }
+      span.last{
+        height:40px;
+
+        label{
+          color:#292929;
+          font-size:18px;
+        }
+        strong{
+          font-size:18px;
+          font-weight:600;
+          color:#EE2073;
+        }
+      }
+    }
+  }
+
+
+  .sandBtns{
+    text-align: center;
+    margin-top:20px;
+
+    .v-btn{
+      background:#EE2073;
       color:#fff;
       border:0px;
       border-radius:5px;
-      width:200px;
+      width:100%;
       height:40px;
       letter-spacing: 0px;
       font-family:'SCDream';

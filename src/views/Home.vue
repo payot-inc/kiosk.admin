@@ -4,7 +4,7 @@
     <div class="total-row">
       <v-row>
         <v-col cols="12" xl="2" lg="4" md="4" sm="6"  v-for="(item, index) in totalSales" :key="index">
-          <dl :class="'total-item-'+index">
+          <dl :class="'total-item-'+index" v-ripple>
             <dt>{{item.name}}</dt>
             <dd>
               <span class="number">

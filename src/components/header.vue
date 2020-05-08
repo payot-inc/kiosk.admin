@@ -7,6 +7,7 @@
       </div>
       <div class="gnb">
         <v-btn text>홈페이지</v-btn>
+        <v-btn text>카드사용내역 보기</v-btn>
         <v-btn text @click="$refs.password.open(true)">비밀번호 변경</v-btn>
         <v-btn text @click="$router.push('login')">로그아웃</v-btn>
       </div>
