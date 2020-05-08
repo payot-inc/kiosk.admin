@@ -282,8 +282,8 @@ export default {
         align-items: center;
         height:30px;
 
-        label{font-size:14px;color:#888}
-        strong{font-size:14px;color:#292929;}
+        label{font-size:14px;color:#888;}
+        strong{font-size:14px;color:#292929;font-weight:500}
       }
       span.last{
         height:40px;
