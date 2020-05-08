@@ -122,12 +122,16 @@
 
     
     <div class="order-box">
-      <h4>주문내역</h4>
       
       <div class="order-info">
+        <h4>설정조건</h4>
         <span>
           <label>대상회원</label>
           <strong>245 명</strong>
+        </span>
+        <span>
+          <label>이벤트종류</label>
+          <strong>문자만 발송</strong>
         </span>
         <span>
           <label>인원 x 문자발송비용(건당 80원)</label>
@@ -137,8 +141,26 @@
           <label>부가가치세</label>
           <strong>3,450 원</strong>
         </span>
-        <v-divider></v-divider>
-        <span class="last">
+      </div>
+
+      <v-divider/>
+
+      <div class="order-info">
+        <h4>주문내역</h4>
+        <span>
+          <label>인원 x 문자발송비용(건당 80원)</label>
+          <strong>34,550 원</strong>
+        </span>
+        <span>
+          <label>부가가치세</label>
+          <strong>3,450 원</strong>
+        </span>
+      </div>
+
+      <v-divider/>
+      
+      <div class="last-price">
+        <span>
           <label>최종금액</label>
           <strong>39,000 원</strong>
         </span>
@@ -267,15 +289,18 @@ export default {
     background:#FFF3F3;
     border-radius:10px;
     padding:30px;
+    font-family:'SCDream';
 
-    h4{margin-bottom:20px;}
+    h4{margin-bottom:10px;}
+    .v-divider{margin:20px 0;}
 
     .order-info{
-      font-family:'SCDream';
+      
 
       .v-divider{
         margin:20px 0;
       }
+
       span{
         display:flex;
         justify-content: space-between;
@@ -285,39 +310,40 @@ export default {
         label{font-size:14px;color:#888;}
         strong{font-size:14px;color:#292929;font-weight:500}
       }
-      span.last{
-        height:40px;
+    }
 
-        label{
-          color:#292929;
-          font-size:18px;
-        }
-        strong{
-          font-size:18px;
-          font-weight:600;
-          color:#EE2073;
-        }
+    .last-price{
+      span{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        height:30px;
+        label{font-size:14px;color:#292929;}
+        strong{font-size:18px;color:#EE2073;font-weight:500}
       }
+
     }
+
+    .sandBtns{
+      text-align: center;
+      margin-top:20px;
+
+      .v-btn{
+        background:#EE2073;
+        color:#fff;
+        border:0px;
+        border-radius:5px;
+        width:100%;
+        height:40px;
+        letter-spacing: 0px;
+        font-family:'SCDream';
+        font-weight:400;
+      }
+    } 
   }
 
 
-  .sandBtns{
-    text-align: center;
-    margin-top:20px;
-
-    .v-btn{
-      background:#EE2073;
-      color:#fff;
-      border:0px;
-      border-radius:5px;
-      width:100%;
-      height:40px;
-      letter-spacing: 0px;
-      font-family:'SCDream';
-      font-weight:400;
-    }
-  }
+  
 }
 
 </style>
