@@ -18,15 +18,18 @@
     </v-row>
 
     <CoinModal ref="coinModal"/>
+    <Progress />
   </div>
 </template>
 
 <script>
 import CoinModal from '@/components/modal/coin.vue'
+import Progress from '@/components/modal/progress.vue'
 
 export default {
   components:{
     CoinModal,
+    Progress
   }
 }
 </script>
