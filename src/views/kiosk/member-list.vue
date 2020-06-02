@@ -9,7 +9,7 @@
             <label>엑셀출력</label>
           </v-btn>
           <v-btn outlined class="point-all" @click="$refs.pointAll.open(true)">
-            <v-icon>mdi-microsoft-excel</v-icon>
+            <v-icon>mdi-alpha-p-circle</v-icon>
             <label>포인트 일괄지급</label>
           </v-btn>
         </div>
