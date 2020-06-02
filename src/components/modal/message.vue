@@ -4,9 +4,9 @@
     width="420px"
   >
     <div class="message-modal">
-      <div class="modalTitle">
-        <h4><span>입력하신 자료를 등록할까요?</span></h4>
-        <p>다시 한번 확인해주세요</p>
+
+      <div class="modal-cont">
+        <slot name="message-cont"/>
       </div>
 
       <div class="btns">
@@ -55,6 +55,14 @@ export default {
     p{margin-top:5px;font-size:14px;color:#888}
   }
 
+  .modal-cont{
+    margin-bottom:20px;
+  
+    dt{
+      strong{color:#EE2073}
+    }
+    
+  }
 
   .btns{
     text-align:right;

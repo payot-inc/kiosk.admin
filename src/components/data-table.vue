@@ -3,12 +3,9 @@
     
     <div class="tableTop">
       <h4>목록 <span>(2)</span></h4>
-      <div class="btns">
-        <v-btn outlined class="exel">
-          <v-icon>mdi-microsoft-excel</v-icon>
-          <label>엑셀출력</label>
-        </v-btn>
-      </div>
+      
+      <slot name="table-top-btns" />
+      
     </div>
     
     <table cellpadding="0" cellspacing="0">
@@ -35,7 +32,6 @@
       ></v-pagination>
     </div>
 
-    
   </div>
 </template>
 
@@ -71,22 +67,6 @@ export default {
       h4{
         font-family:'SCDream';font-weight:500;color:#494949;
         span{color:#d22828}
-      }
-      .btns{
-
-        .v-btn{
-            height:32px;
-            border-radius:5px;
-            margin-left:10px;
-            .v-icon{font-size:22px;}
-            label{letter-spacing:0px;margin-left:10px;}
-        }
-
-        .v-btn.exel{
-          border:1px solid #139B3B;
-          .v-icon{color:#139B3B}
-          label{color:#139B3B}
-        }
       }
     }
 
