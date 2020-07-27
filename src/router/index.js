@@ -39,6 +39,14 @@ import DailySales from '../views/daily/sales.vue'
 import DailyCalc from '../views/daily/calc.vue'
 import DailySalesDay from '../views/daily/sales-days.vue'
 
+import SalesLayout from '../views/sales/layout.vue'
+import Time from '../views/sales/time.vue'
+import Week from '../views/sales/week.vue'
+import Days from '../views/sales/days.vue'
+import Month from '../views/sales/month.vue'
+import ShopRank from '../views/sales/shopRank.vue'
+import CostList from '../views/sales/costList.vue'
+
 Vue.use(VueRouter)
 
   const routes = [
@@ -215,8 +223,44 @@ Vue.use(VueRouter)
         component: DailyCalc,
       },
     ]
-  }
-  
+  },
+  {
+    path: '/sales',
+    name: 'sales',
+    component: SalesLayout,
+    children: [
+      {
+        path: '/sales/time',
+        name: 'time',
+        component: Time,
+      },
+      {
+        path: '/sales/week',
+        name: 'week',
+        component: Week,
+      },
+      {
+        path: '/sales/days',
+        name: 'days',
+        component: Days,
+      },
+      {
+        path: '/sales/month',
+        name: 'month',
+        component: Month,
+      },
+      {
+        path: '/sales/shopRank',
+        name: 'shopRank',
+        component: ShopRank,
+      },
+      {
+        path: '/sales/costList',
+        name: 'costList',
+        component: CostList,
+      },
+    ]
+  }   
 ]
 
 const router = new VueRouter({

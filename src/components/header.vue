@@ -14,7 +14,6 @@
     </div>
 
     <div class="navigation">
-
       <v-btn 
         v-for="item in nav"
         :class="{ active: $route.name === item.name }"
@@ -24,7 +23,6 @@
       >
         {{item.label}}
       </v-btn>
-
     </div>
 
     <Password ref="password"/>
@@ -70,6 +68,12 @@ export default {
           name: 'daily',
           label:'데일리세탁',
           icon:'washing-machine'
+        },
+        {
+          routeName: 'sales',
+          name: 'sales',
+          label:'매출통계',
+          icon:'chart-bar'
         },
       ],
       active: true,
